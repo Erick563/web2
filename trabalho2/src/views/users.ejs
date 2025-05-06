@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Lista de Usuários</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <form method="POST" action="/logout" style="position: absolute; top: 1rem; right: 1rem;">
+        <button type="submit" id="logoff">
+            Logoff
+        </button>
+    </form>
+    <div class="container" role="main" aria-label="Lista de Usuários com paginação">
+        <h1>Lista de Usuários</h1>
+
+        <% if (users && users.length> 0) { %>
+            <table aria-describedby="userListDesc">
+                <caption id="userListDesc" class="sr-only">Tabela com usuários listados com CPF e nome</caption>
+                <thead>
+                    <tr>
+                        <th>CPF</th>
+                        <th>Nome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(function(user) { %>
+                        <tr>
+                            <td>
+                                <%= user.cpf %>
+                            </td>
+                            <td>
+                                <%= user.name %>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+            <% } else { %>
+                <p>Nenhum usuário encontrado.</p>
+                <% } %>
+
+            <nav class="pagination" aria-label="Navegação de páginas">
+                <form method="GET" action="" class="pagination">
+                    <button type="submit" name="page" value="<%= currentPage - 1 %>" <% if (currentPage <= 1) { %>disabled<% } %>>
+                        Anterior
+                    </button>
+                    <span> Página <%= currentPage %> de <%= totalPages %> </span>
+                    <button type="submit" name="page" value="<%= currentPage + 1 %>" <% if (currentPage >= totalPages) { %>disabled<% } %>>
+                        Próxima
+                    </button>
+                </form>
+            </nav>
+    </div>
+</body>
+
+</html>

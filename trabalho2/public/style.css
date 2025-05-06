@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 1rem;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    width: 100%;
+    max-width: 350px;
+    max-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    font-size: 2rem;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #e0e0e0;
+}
+
+input[type="text"],
+select,
+input[type="password"] {
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+select:focus,
+input[type="password"]:focus {
+    box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.7);
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+button,
+.pagination button {
+    flex: 1;
+    padding: 1rem 0;
+    background: #5a4ba8;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 5px 15px rgba(90, 75, 168, 0.6);
+    user-select: none;
+}
+
+button:hover,
+.pagination button:hover {
+    background: #443675;
+    box-shadow: 0 8px 18px rgba(68, 54, 117, 0.8);
+}
+
+button:disabled,
+.pagination button:disabled {
+    background: rgba(90, 75, 168, 0.35);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.footer-text {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: #dcdcdc;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+}
+
+thead tr {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+th,
+td {
+    padding: 0.75rem 0.5rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #f0f0f0;
+}
+
+tbody tr:nth-child(odd) {
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 4px;
+}
+
+tbody tr:hover {
+    background: rgba(255, 255, 255, 0.15);
+    cursor: default;
+}
+
+.pagination {
+    display: flex;
+    /* Define o layout como flexbox */
+    justify-content: center;
+    /* Centraliza os elementos horizontalmente */
+    align-items: center;
+    /* Alinha os elementos verticalmente */
+    gap: 1rem;
+    /* Adiciona espaçamento entre os elementos */
+    margin-top: 1rem;
+    /* Espaçamento superior */
+}
+
+.pagination form {
+    flex-direction: row;
+}
+
+
+.pagination button {
+    padding: 0.5rem 1rem;
+    background: #5a4ba8;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pagination button:hover {
+    background: #443675;
+}
+
+.pagination button:disabled {
+    background: rgba(90, 75, 168, 0.35);
+    cursor: not-allowed;
+}
+
+.pagination span {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #ddd;
+    user-select: none;
+}
+
+@media (max-height: 600px) {
+    .container {
+        max-height: 100vh;
+        overflow: auto;
+    }
+}
+
+#errorModal {
+    display: block;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f3e5f5;
+    color: #4a148c;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+#errorModal button {
+    margin-top: 1rem;
+    background-color: #4a148c;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#voltar {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+#logoff {
+    padding: 0.5rem 1rem;
+    background: #ff4b5c;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 75, 92, 0.6);
+}
